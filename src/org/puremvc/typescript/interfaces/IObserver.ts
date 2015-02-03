@@ -61,6 +61,6 @@ module puremvc {
          * @return
          *        The object and the notification context are the same.
          */
-        compareNotifyContext(object:any):bool;
+        compareNotifyContext(object:any):boolean;
     }
 }
