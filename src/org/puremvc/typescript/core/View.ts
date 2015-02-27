@@ -45,7 +45,6 @@ module puremvc {
         constructor() {
             if (View.instance)
                 throw Error(View.SINGLETON_MSG);
-
             View.instance = this;
             this.mediatorMap = [];
             this.observerMap = [];
@@ -126,7 +125,6 @@ module puremvc {
          */
         notifyObservers(notification:INotification):void {
             var notificationName:string = notification.getName();
-
             var observersRef/*Array*/ = this.observerMap[notificationName];
             if (observersRef) {
                 // Copy the array.
@@ -175,8 +173,6 @@ module puremvc {
                 for (var i:number = 0; i < len; i++)
                     this.registerObserver(interests[i], observer);
             }
-
-            //Alert the mediator that it has been registered.
             mediator.onRegister();
         }
 

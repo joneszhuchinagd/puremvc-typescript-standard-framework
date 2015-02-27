@@ -20,7 +20,7 @@ module puremvc {
          *
          * @protected
          */
-        viewComponent:any = null;
+        public view:any = null;
 
         /**
          * Constructs a <code>Mediator</code> instance.
@@ -28,14 +28,13 @@ module puremvc {
          * @param mediatorName
          *        The name of the <code>Mediator</code>.
          *
-         * @param viewComponent
+         * @param view
          *        The view component handled by this <code>Mediator</code>.
          */
-        constructor(mediatorName:string = null, viewComponent:any = null) {
+        constructor(mediatorName:string = null, view:any = null) {
             super();
-
             this.mediatorName = (mediatorName != null) ? mediatorName : Mediator.NAME;
-            this.viewComponent = viewComponent;
+            this.view = view;
         }
 
         /**
@@ -48,35 +47,6 @@ module puremvc {
             return this.mediatorName;
         }
 
-        /**
-         * Get the <code>Mediator</code>'s view component.
-         *
-         * Additionally, an implicit getter will usually be defined in the subclass that casts the
-         * view object to a type, like this:
-         *
-         * <code>
-         *        getMenu():Menu
-         *        {
-		 *			return <Menu> this.viewComponent;
-		 *		}
-         * </code>
-         *
-         * @return
-         *        The <code>Mediator</code>'s default view component.
-         */
-        getViewComponent():any {
-            return this.viewComponent;
-        }
-
-        /**
-         * Set the <code>IMediator</code>'s view component.
-         *
-         * @param viewComponent
-         *        The default view component to set for this <code>Mediator</code>.
-         */
-        setViewComponent(viewComponent:any):void {
-            this.viewComponent = viewComponent;
-        }
 
         /**
          * List the <code>INotification</code> names this <code>IMediator</code> is interested in
